@@ -162,6 +162,24 @@
                 <input type="password" id="password_confirmation" name="password_confirmation" required>
             </div>
 
+
+            <div>
+    <label for="two_fa_question">Select a Security Question</label>
+    <select id="two_fa_question" name="two_fa_question" required>
+        <option value="Father's first name">Father's first name</option>
+        <option value="Number of siblings">Number of siblings</option>
+        <option value="Childhood nickname">Childhood nickname</option>
+        <option value="City where you were born">City where you were born</option>
+    </select>
+</div>
+
+<div>
+    <label for="two_fa_answer">Your Answer</label>
+    <input type="text" id="two_fa_answer" name="two_fa_answer" required>
+</div>
+
+
+
             <!-- Google reCAPTCHA widget -->
             <div class="g-recaptcha" data-sitekey="{{ config('captcha.sitekey') }}"></div>
             @error('g-recaptcha-response')
