@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\BrokenAccessControlController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
@@ -32,3 +33,9 @@ Route::post('/email/resend', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.resend');
+
+// Route for 2FA verification
+Route::get('/2fa/verify', [AuthController::class, 'show2faVerify'])->name('2fa.verify');
+Route::post('/2fa/verify', [AuthController::class, 'verify2fa']);
+
+Route::get('/profile/{user}', [BrokenAccessControlController::class, 'show']);
