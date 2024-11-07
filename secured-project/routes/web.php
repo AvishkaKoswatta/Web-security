@@ -36,3 +36,4 @@ Route::post('/email/resend', function (Request $request) {
 // Route for 2FA verification
 Route::get('/2fa/verify', [AuthController::class, 'show2faVerify'])->name('2fa.verify');
 Route::post('/2fa/verify', [AuthController::class, 'verify2fa']);
+
