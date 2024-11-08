@@ -10,11 +10,8 @@ class BrokenAccessControlController extends Controller
 {
     public function show(User $user)
 {
-    // Check if the authenticated user is trying to access their own profile
-    if ($user->id !== Auth::id()) {
-        abort(403, 'Unauthorized action.');
-    }
-
+    
+    $user = Auth::user();
     return view('profile', compact('user'));
 }
 

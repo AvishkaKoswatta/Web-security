@@ -38,4 +38,4 @@ Route::post('/email/resend', function (Request $request) {
 Route::get('/2fa/verify', [AuthController::class, 'show2faVerify'])->name('2fa.verify');
 Route::post('/2fa/verify', [AuthController::class, 'verify2fa']);
 
-Route::get('/profile/{user}', [BrokenAccessControlController::class, 'show']);
+Route::get('/profile', [BrokenAccessControlController::class, 'show'])->name('profile.show');
